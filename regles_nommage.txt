@@ -1,0 +1,7 @@
+Utilisation de la langue anglaise
+
+Pour les classes (UpperCamelCase = majuscule + camel case ) : MyClass 
+Pour les fichiers (Underscore) : name_file 
+Pour les variables (Camel Case) : myVar 
+Pour les méthodes (Camel Case) : maMethode
+
