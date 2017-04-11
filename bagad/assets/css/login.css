@@ -13,7 +13,7 @@ body {
 	background: #333;
 	padding: 10px;
 	font-family: 'Andika', sans-serif;
-	color: #b8a7a7;
+	color: #877d73;
 }
 
 h1 {
@@ -23,10 +23,7 @@ h1 {
 	padding-bottom: 10px;
 }
 
-h1 span {
-	color: #379413;
-	font-size: 1.3em;
-}
+
 
 #error_connection {
 	text-align: center;
@@ -34,7 +31,7 @@ h1 span {
 	margin-bottom: 1em;
 }
 
-#login {
+.main_form{
 	width: 260px;
 	padding: 30px 20px 20px 20px;
 	background: #fff;
@@ -60,14 +57,14 @@ h1 span {
 	color: #d3c7c3;
 }
 
-#loginform {
+.form_perso {
 	padding: 30px 0px 0px 0px;
 }
 
 input {
 	display: block;
 	border: none;
-	background: #eeeeee;
+	background-color: #e2dbd3;
 	width: 96%;
 	padding: 5% 2%;
 	font-size: 0.9em;
@@ -82,13 +79,13 @@ input[type="text"] {
 	-ms-box-shadow: inset 0 2px 8px -6px #bcb4ad;
 	-o-box-shadow: inset 0 2px 8px -6px #bcb4ad;
 	box-shadow: inset 0 2px 8px -6px #bcb4ad;
-	background: #e2dbd3;
+	
 	border-bottom: none;
 	margin-bottom: 0.6em;
 }
 
 input[type="password"] {
-	background-color: #e2dbd3;
+	
 	border-radius: 0px 0px 5px 5px;
 	box-shadow: 0px 0px 2px #efefeb;
 	border-top: none;
@@ -176,13 +173,24 @@ input[type="submit"]:active {
 	left: 14px;
 }
 
-.btn {
+.btn_form {
+	display: block;
+    position: relative;
+	top: 1em;
+    margin-left: auto;
+    margin-right: auto;
 	height: 30px;
+	width: 100px;
 	background: #e2dbd3;
 	text-decoration: none;
 }
 
-.btn:hover {
+.btn_form:hover {
 	background: #ccc5be;
 	text-decoration: none;
 }
+
+#instrument{
+	margin-left: 1em;
+}
+
