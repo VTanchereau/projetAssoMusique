@@ -1,0 +1,30 @@
+<!Doctype>
+<html lang="fr">
+
+	<head>
+		<link rel="stylesheet" href="../assets/css/form_article_event.css">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+
+
+	<body>
+		<main class="main_form main_form_size">
+		
+			<h1>Ajouter un article</h1>
+			<form class="form_perso" method="post" action="">
+				<label for="articleName">Titre de l'article</label>
+				<input type="text" name="articleName" id="articleName" required/>
+				<label for="articleVisibility" id="label_articleVisibility">Visibilité</label>
+				<select name="articleVisibility" id="articleVisibility">
+				   <option value="vibible">Visible</option>
+				   <option value="novisible">Non visible</option>
+				</select>
+				<label for="articleContent">Contenu</label>
+				<input type="text" name="articleContent" id="articleContent" required/>
+				<button id="btn-add"value="">Ajouter</button>
+				<button id="btn-cancel"value="">Annuler</button>
+			</form>
+		</main>
+	</body>
+
+</html>

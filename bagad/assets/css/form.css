@@ -41,6 +41,11 @@ h1 {
 	position: relative;
 	/*box-shadow:0px 0px 10px 2px #b5a69e;*/
 }
+.main_form_size{
+	width: 500px;
+	display: flex;
+	flex-direction: row !important;
+}
 
 #profile {
 	width: 80px;
@@ -66,7 +71,8 @@ input {
 	border: none;
 	background-color: #e2dbd3;
 	width: 96%;
-	padding: 5% 2%;
+	height: 3em;
+	padding-left: 1em;
 	font-size: 0.9em;
 	color: #6d6d6d;
 	border: 1px solid #eeeeee;
@@ -193,4 +199,11 @@ input[type="submit"]:active {
 #instrument{
 	margin-left: 1em;
 }
+#articleName{
+	width: 50%;
+	height: 2em;
+}
 
+.btn_form:nth-child(1){
+	background-color: green;
+}
