@@ -1,0 +1,33 @@
+<!Doctype>
+<html lang="fr">
+
+	<head>
+		<link rel="stylesheet" href="../assets/css/form.css">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+
+
+	<body>
+		<main class="main_form">
+		
+			<h1>Formulaire d'inscription</h1>
+			<form class="form_perso" method="post" action="">
+				<label for="famillyName">Nom </label>
+				<input type="text" name="famillyName" id="famillyName" required />
+				<label for="firstName">Prénom </label><input type="text" name="firstName" id="firstName" required />
+				<label for="birthday">Date de naissance</label><input type ="date" name="birthday" id="birhtday" required/>
+				<label for="email">Email</label><input type="email" name="email" id="email" required/>
+				<label for="phone">Téléphone</label><input type="tel" name="phone" id="phone" required/>
+				<label for="instrument">Instrument joué </label>
+				<select name="instrument" id="instrument">
+				   <option value="caisseclaire">Caisse Claire</option>
+				   <option value="saxophone">Saxophone</option>
+				   <option value="flute">Flûte</option>
+				</select>
+				<button class="btn_form" value="subscribe">S'inscrire</button>
+
+			</form>
+		</main>
+	</body>
+
+</html>

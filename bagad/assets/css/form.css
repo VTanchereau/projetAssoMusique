@@ -1,0 +1,196 @@
+@import url(http://fonts.googleapis.com/css?family=Andika);
+* {
+	margin: 0px;
+	padding: 0px;
+	outline: none;
+}
+
+html {
+	height: 100%
+}
+
+body {
+	background: #333;
+	padding: 10px;
+	font-family: 'Andika', sans-serif;
+	color: #877d73;
+}
+
+h1 {
+	text-align: center;
+	color: #877d73;
+	font-size: 1.2em;
+	padding-bottom: 10px;
+}
+
+
+
+#error_connection {
+	text-align: center;
+	color: firebrick;
+	margin-bottom: 1em;
+}
+
+.main_form{
+	width: 260px;
+	padding: 30px 20px 20px 20px;
+	background: #fff;
+	border-radius: 15px;
+	border: 1px solid #d3c7be;
+	margin: 0 auto;
+	position: relative;
+	/*box-shadow:0px 0px 10px 2px #b5a69e;*/
+}
+
+#profile {
+	width: 80px;
+	height: 80px;
+	background: #dbd3cb;
+	border-radius: 50%;
+	border: 1px solid #dadada;
+	margin: 0 auto;
+	position: relative;
+}
+
+#profile i {
+	font-size: 4.5em;
+	color: #d3c7c3;
+}
+
+.form_perso {
+	padding: 30px 0px 0px 0px;
+}
+
+input {
+	display: block;
+	border: none;
+	background-color: #e2dbd3;
+	width: 96%;
+	padding: 5% 2%;
+	font-size: 0.9em;
+	color: #6d6d6d;
+	border: 1px solid #eeeeee;
+}
+
+input[type="text"] {
+	border-radius: 5px 5px 0px 0px;
+	-webkit-box-shadow: inset 0 2px 8px -6px #bcb4ad;
+	-moz-box-shadow: inset 0 2px 8px -6px #bcb4ad;
+	-ms-box-shadow: inset 0 2px 8px -6px #bcb4ad;
+	-o-box-shadow: inset 0 2px 8px -6px #bcb4ad;
+	box-shadow: inset 0 2px 8px -6px #bcb4ad;
+	
+	border-bottom: none;
+	margin-bottom: 0.6em;
+}
+
+input[type="password"] {
+	
+	border-radius: 0px 0px 5px 5px;
+	box-shadow: 0px 0px 2px #efefeb;
+	border-top: none;
+}
+
+input[type="submit"] {
+	width: 100%;
+	margin-top: 20px;
+	border-radius: 5px;
+	background: #0071cf;
+	color: #fff;
+	font-size: 1em;
+	font-weight: bold;
+	box-shadow: 0px 3px 0px #005fae;
+	cursor: pointer;
+	border: none;
+	-webkit-transition: 0.5s;
+}
+
+input[type="submit"]:active {
+	box-shadow: 0px 0px 0px #005fae;
+	-webkit-transition: 0.5s;
+}
+
+::-webkit-input-placeholder {
+	color: #aaa9a9;
+}
+
+:-moz-placeholder {
+	/* Firefox 18- */
+	color: #aaa9a9;
+}
+
+::-moz-placeholder {
+	/* Firefox 19+ */
+	color: #aaa9a9;
+}
+
+:-ms-input-placeholder {
+	color: #aaa9a9;
+}
+
+#userproimage {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+}
+
+#defaultimg {
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	border-radius: 50%;
+	width: 82px;
+	height: 82px;
+	background: #dbd3cb;
+	overflow: hidden;
+	-webkit-box-shadow: inset 0 8px 12px -6px #bcb4ad;
+	-moz-box-shadow: inset 0 8px 12px -6px #bcb4ad;
+	-ms-box-shadow: inset 0 8px 12px -6px #bcb4ad;
+	-o-box-shadow: inset 0 8px 12px -6px #bcb4ad;
+	box-shadow: inset 0 8px 12px -6px #bcb4ad;
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	-ms-transition: 0.5s;
+	-o-transition: 0.5s;
+	transition: 0.5s;
+}
+
+.hidedefault {
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	-ms-transition: 1s;
+	-o-transition: 1s;
+	transition: 1s;
+	opacity: 0;
+}
+
+.fa-user:before {
+	position: absolute;
+	bottom: -6px;
+	left: 14px;
+}
+
+.btn_form {
+	display: block;
+    position: relative;
+	top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+	height: 30px;
+	width: 100px;
+	background: #e2dbd3;
+	text-decoration: none;
+}
+
+.btn_form:hover {
+	background: #ccc5be;
+	text-decoration: none;
+}
+
+#instrument{
+	margin-left: 1em;
+}
+
