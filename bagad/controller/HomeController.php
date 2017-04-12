@@ -7,7 +7,6 @@ use bagadlag\model\dao\daoUser;
 
 class HomeController
 {
-
     public function show()
     {
 		$a = new daoArticle();
