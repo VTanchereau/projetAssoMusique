@@ -49,16 +49,16 @@ spl_autoload_register(function ($class) {
 
 if (isset($_GET['page']) && $_GET['page'] != ''){
     $page = $_GET['page'];
-
+    $module = "";
+    if (isset($_GET['module']) && $_GET['module'] != ''){
+        $module = $_GET['module'];
+    }
+    $controllerClass = "bagadlag\\controller\\".ucfirst($page)."Controller";
+    $controller = new $controllerClass();
+    if ($module != ""){
+        $controller->$module();
+    }
 }else{
-    $relativepath = 'controller/home.php';
-    header("Location: ".getUrl($relativepath));
-    exit;
+    $controller = new \bagadlag\controller\HomeController();
+    $controller->show();
 }
-
-function getUrl($relativepath){
-    $host  = $_SERVER['HTTP_HOST'];
-    return "http://$host/$relativepath";
-}
-
-$test = "indexp.php/page=eventAdd&module=addEvent";
