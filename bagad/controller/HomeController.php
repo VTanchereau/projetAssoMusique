@@ -3,6 +3,7 @@
 namespace bagadlag\controller;
 
 use bagadlag\model\dao\daoArticle;
+use bagadlag\model\dao\daoUser;
 
 class HomeController
 {
@@ -12,5 +13,13 @@ class HomeController
 		$a = new daoArticle();
 		$result = $a->selectAll();
         include("view/home.html");
+		
+		$user= new daoUser();
+		$user_result = $user->selectAll();
+		var_dump($user_result);
+		
     }
+	
+
+	
 }
