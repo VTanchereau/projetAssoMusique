@@ -47,9 +47,18 @@ spl_autoload_register(function ($class) {
     }
 });
 
-use bagadlag\model\dao\daoUser as daoUser;
+if (isset($_GET['page']) && $_GET['page'] != ''){
+    $page = $_GET['page'];
 
+}else{
+    $relativepath = 'controller/home.php';
+    header("Location: ".getUrl($relativepath));
+    exit;
+}
 
-$DAOUSER = new daoUser();
-$DAOUSER->selectAll();
+function getUrl($relativepath){
+    $host  = $_SERVER['HTTP_HOST'];
+    return "http://$host/$relativepath";
+}
 
+$test = "indexp.php/page=eventAdd&module=addEvent";
