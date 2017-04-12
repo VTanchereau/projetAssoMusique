@@ -47,6 +47,17 @@ spl_autoload_register(function ($class) {
     }
 });
 
+use bagadlag\model\dao\daoinstrument;
+
+$daoInstrument = new daoInstrument();
+$daoInstrument->selectAll();
+
+use bagadlag\model\dao\daotype;
+
+$daoType = new daoType();
+$daoType->selectAll();
+
+/*
 if (isset($_GET['page']) && $_GET['page'] != ''){
     $page = $_GET['page'];
 
@@ -61,4 +72,4 @@ function getUrl($relativepath){
     return "http://$host/$relativepath";
 }
 
-$test = "indexp.php/page=eventAdd&module=addEvent";
+$test = "indexp.php/page=eventAdd&module=addEvent";*/
