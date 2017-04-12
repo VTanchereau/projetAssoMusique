@@ -26,7 +26,7 @@ class daoUser extends dao
         echo '</br>';
         while ($data = $dbResult->fetch()) {
             echo '</br>';
-            echo $data["first_name"];9
+            echo $data["first_name"];
             echo '</br>';
             print_r($data);
         }
