@@ -9,7 +9,7 @@
 namespace bagadlag\model\dao;
 
 
-class daoType extends dao
+class daoGroupe extends dao
 {
 
     /**
@@ -17,8 +17,8 @@ class daoType extends dao
      */
     public function __construct()
     {
-        $this->tableName = "type";
-        $this->fields = array("id", "label","with_fee");
+        $this->tableName = "groupe";
+        $this->fields = array("id", "label");
     }
 
     public function processDbResult($dbResult){
@@ -26,7 +26,7 @@ class daoType extends dao
         echo '</br>';
         while ($data = $dbResult->fetch()) {
             echo '</br>';
-            echo $data["with_fee"];
+            echo $data["label"];
             echo '</br>';
             print_r($data);
         }

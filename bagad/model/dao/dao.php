@@ -16,11 +16,12 @@ abstract class dao
 
     public function selectAll(){
         $query = "SELECT " . implode(', ', $this->fields)." FROM " . $this->tableName;
+		echo $query;
 
         $db = dbConnection::getInstance()->getDB();
 
         $response = $db->query($query);
-
+		var_dump($response);
         return ($this->processDbResult($response));
     }
 

@@ -57,6 +57,16 @@ use bagadlag\model\dao\daotype;
 $daoType = new daoType();
 $daoType->selectAll();
 
+
+use bagadlag\model\dao\daoGroupe;
+$daoGroupe = new daoGroupe();
+$daoGroupe->selectAll();
+
+
+use bagadlag\model\dao\daorole;
+$daoRole = new daoRole();
+$daoRole->selectAll();
+
 /*
 if (isset($_GET['page']) && $_GET['page'] != ''){
     $page = $_GET['page'];
