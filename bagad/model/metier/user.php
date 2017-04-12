@@ -35,7 +35,7 @@ class user
      * @param $role
      * @param $instrument
      */
-    public function __construct($id, $firstName, $lastName, $login, $password, $mail, $phoneNumber, $group, $role, $instrument)
+    public function __construct($id, $firstName, $lastName, $phoneNumber, $mail, $login, $password, $role, $group, $instrument)
     {
         $this->id = $id;
         $this->firstName = $firstName;
