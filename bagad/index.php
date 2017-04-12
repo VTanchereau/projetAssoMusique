@@ -55,6 +55,7 @@ if (isset($_GET['page']) && $_GET['page'] != ''){
     }
     $controllerClass = "bagadlag\\controller\\".ucfirst($page)."Controller";
     $controller = new $controllerClass();
+    $controller->show();  // J'ai rajouté ça pour aller direct dans la fonction show()   BON ?? pas BON ?????
     if ($module != ""){
         $controller->$module();
     }
