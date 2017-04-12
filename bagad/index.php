@@ -67,6 +67,9 @@ use bagadlag\model\dao\daorole;
 $daoRole = new daoRole();
 $daoRole->selectAll();
 
+use bagadlag\model\dao\daoevent;
+$daoEvent = new daoEvent();
+$daoEvent->selectAll();
 /*
 if (isset($_GET['page']) && $_GET['page'] != ''){
     $page = $_GET['page'];
