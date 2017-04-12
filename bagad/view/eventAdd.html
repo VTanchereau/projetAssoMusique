@@ -1,28 +1,68 @@
 <!Doctype>
 <html lang="fr">
 
-	<head>
-		<link rel="stylesheet" href="../assets/css/form_article_event.css">
-		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	</head>
-	<body>
-		<main class="main_form main_form_size">
-		
-			<h1>Ajouter un évènement</h1>
-			<form class="form_perso" method="post" action="">
-				<label for="eventName">Titre de l'évènement</label>
-				<input type="text" name="eventName" id="articleName" required/>
-				<label for="articleVisibility" id="label_articleVisibility">Visibilité</label>
-				<select name="articleVisibility" id="articleVisibility">
-				   <option value="vibible">Visible</option>
-				   <option value="novisible">Non visible</option>
-				</select>
-				<label for="articleContent">Contenu</label>
-				<input type="text" name="articleContent" id="articleContent" required/>
-				<button id="btn-add"value="">Ajouter</button>
-				<button id="btn-cancel"value="">Annuler</button>
-			</form>
-		</main>
-	</body>
+<head>
+	<link rel="stylesheet" href="../assets/css/form_article_event.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<main class="main_form main_form_size">
+
+		<h1>Ajouter un évènement</h1>
+		<form class="form_perso" method="post" action="">
+				<div class="element">
+					<div id="eventTitle">
+					<label for="eventName">Titre de l'évènement</label>
+					<input type="text" name="eventName" id="" required/>
+					</div>
+					<div id="chooseType">
+					<label for="eventType" id="eventType">Type</label>
+					<select name="eventType" id="type">
+								   <option value="type1">Type1</option>
+								   <option value="type2">Type2</option>
+					</select>
+					</div>
+				</div>
+				<div class="element">
+					<div id="date1">
+						<label for="dateStart">Date début</label>
+						<input type="date" name="dateStart" id="dateStart" />
+					</div>
+					<div id="date2" class="end">
+					<label for="dateEnd">Date fin</label>
+					<input type="date" name="dateEnd" id="dateEnd" />
+					</div>
+			
+				</div>
+				
+				<div class="element">
+					<div class="first">
+					<label for="eventStatut" id="">Statut</label>
+					<select name="eventStatut" id="">
+									   <option value="novalide">Non validé</option>
+									   <option value="valide">Valide</option>
+									</select>
+									</div>
+					<div class="end">
+					<label for="eventPlace">Lieu de l'évènement </label>
+					<input name="eventPlace" id="eventPlace" />
+					</div>
+				</div>
+				<div class="element" id="price">
+					<label for="eventPrice">Prix</label>
+					<input name="eventPrice" id="eventPrice" />
+				</div>
+				
+			<label for="eventContent">Contenu</label>
+			<input type="text" name="eventContent" id="eventContent" class="contenu" required/>
+			<p>Créer par :</p>
+			<div class="btn_form">
+				<button id="btn-add" value="">Ajouter</button>
+				<button id="btn-cancel" value="">Annuler</button>
+			</div>
+		</form>
+	</main>
+</body>
 
 </html>
