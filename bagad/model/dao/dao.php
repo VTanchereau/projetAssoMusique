@@ -11,17 +11,23 @@ namespace bagadlag\model\dao;
 
 abstract class dao
 {
-    protected $fields;
-    protected $tableName;
+    public function sqlSelect($tableName, $fields = "*", $join = false, $order = false, $where = false){
+        $sql = "SELECT " . $this->fields." FROM " . $this->tableName;
+        if ($join) $sql .= " ".$join;
+        if ($where) $sql .= " ".$where;
+        if ($order) $sql .= " ".$order;
+        return $sql;
+    }
+
+    //Permet de construire une requête SELECT en fonction des paramètres de la classe fille ($order, $join, etc.)
+    function sqlSelectStd($where = false) {
+        return $this->sqlSelect($this->tableName, isset($this->fields) ? $this->fields : "*", isset($this->join) ? $this->join : false, isset($this->order) ? $this->order : false, $where);
+    }
 
     public function selectAll(){
-        $query = "SELECT " . implode(', ', $this->fields)." FROM " . $this->tableName;
-		echo $query;
-
+        $sql = $this->sqlSelectStd();
         $db = dbConnection::getInstance()->getDB();
-
-        $response = $db->query($query);
-		var_dump($response);
+        $response = $db->query($sql);
         return ($this->processDbResult($response));
     }
 
