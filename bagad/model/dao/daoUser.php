@@ -5,38 +5,44 @@
  * Date: 11/04/2017
  * Time: 14:20
  */
-
 namespace bagadlag\model\dao;
-
+use bagadlag\model\metier\user;
 
 class daoUser extends dao
 {
-
     /**
-     * daoUser constructor.
+     * daoArticle constructor.
      */
     public function __construct()
     {
         $this->tableName = "user";
-        $this->fields = array("id", "first_name", "last_name", "phone_Number", "mail", "login", "password", "role_id", "group_id", "instrument_id");
+        $this->fields = "user.*, instrument.name as instrumentName";
+        $this->join = "INNER JOIN instrument ON instrument.id = user.instrument_id";
     }
 
     public function processDbResult($dbResult){
-        $listUsers = array();
-        while ($data = $dbResult->fetch()) {
-            $id = $data["id"];
-            $firstName = $data["first_name"];
-            $lastName = $data["last_name"];
-            $phoneNumber = $data["phone_number"];
-            $mail = $data["mail"];
-            $login = $data["login"];
-            $password = $data["password"];
-            $instrumentId = $data["instrument_id"];
 
-            $user = new user($id, $firstName, $lastName, $phoneNumber, $mail, $login, $password, $roleId, $groupId, $instrumentId);
-            error_log($user->getLastName());
+        while ($data = $dbResult->fetch()) {
+			var_dump($data);
+            $id = $data["id"];
+			$firstName = $data["first_name"];
+			$lastName = $data["last_name"];
+			$login = $data["login"];
+			$password = $data["password"];
+			$mail = $data["mail"];
+			$phoneNumber = $data["phone_number"];
+			$group = $data["groupe_id"];
+			$role = $data["role_id"];
+			$instrument = $data["instrumentName"];
+
+            $user = new user($id, $firstName, $lastName, $login, $password, $mail, $phoneNumber, $group, $role, $instrument);
+            //error_log($article->getLastName());
+
             $listUsers[] = $user;
         }
         return $listUsers;
     }
 }
+?>
+
+

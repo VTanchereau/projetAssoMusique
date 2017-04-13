@@ -19,6 +19,7 @@ class dbConnection
     private static $host = "localhost";
     private static $port = "3307";
 
+
     private static $instance;
 
     /**

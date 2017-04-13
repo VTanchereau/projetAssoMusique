@@ -1,16 +1,5 @@
-﻿<!Doctype>
-<html lang="fr">
 
-<head>
-	<link rel="stylesheet" href="../assets/css/form_article_event.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
-<body>
-	<main class="main_form main_form_size">
-
-		<h1>Ajouter un évènement</h1>
-		<form class="form_perso" method="post" action="">
+		<form class="form_perso" method="post" action="index.php?page=bureau&module=addEventBdd">
 				<div class="element">
 					<div id="eventTitle">
 					<label for="eventName">Titre de l'évènement</label>
@@ -19,8 +8,8 @@
 					<div id="chooseType">
 					<label for="eventType" id="eventType">Type</label>
 					<select name="eventType" id="type">
-								   <option value="type1">Type1</option>
-								   <option value="type2">Type2</option>
+								   <option value="1">Type1</option>
+								   <option value="2">Type2</option>
 					</select>
 					</div>
 				</div>
@@ -40,8 +29,8 @@
 					<div class="first">
 					<label for="eventStatut" id="">Statut</label>
 					<select name="eventStatut" id="">
-									   <option value="novalide">Non validé</option>
-									   <option value="valide">Valide</option>
+									   <option value="0">Non validé</option>
+									   <option value="1">Valide</option>
 									</select>
 									</div>
 					<div class="end">
@@ -58,11 +47,7 @@
 			<input type="text" name="eventContent" id="eventContent" class="contenu" required/>
 			<p>Créer par :</p>
 			<div class="btn_form">
-				<button id="btn-add" value="">Ajouter</button>
-				<button id="btn-cancel" value="">Annuler</button>
+				<input type="submit" id="btn-add" value="Ajouter"/>
+				
 			</div>
 		</form>
-	</main>
-</body>
-
-</html>
