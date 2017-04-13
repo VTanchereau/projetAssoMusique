@@ -38,4 +38,14 @@ class daoArticle extends dao
         }
         return $listArticle;
     }
+
+    public function articleRegister($articleTitle, $articleContent, $articleVisibility){
+        $db = dbConnection::getInstance()->getDB();
+        $stmt = $db->prepare("INSERT INTO article(title, content, creation_date, visibility) VALUES (:title, :content, CURDATE(), :visibility)");
+        $stmt->bindParam(":title", $articleTitle);
+        $stmt->bindParam(":content", $articleContent);
+        $stmt->bindParam(":visibility", $articleVisibility);
+        $stmt->execute();
+        $stmt->closeCursor();
+    }
 }

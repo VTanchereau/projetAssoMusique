@@ -17,8 +17,6 @@ class dbConnection
     private static $pass = "";
     private static $dbName = "bagad";
     private static $host = "localhost";
-   
-
     private static $instance;
 
     /**
