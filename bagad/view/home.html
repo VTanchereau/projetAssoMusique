@@ -5,9 +5,11 @@
 			<h1>Actualités</h1>
 		</section>
 		<section id="contain" class="article_container">
+		<?php if(isset($result)): ?>
 			<?php foreach ($result as $article): ?>
 			<article class="article">
 				<h2><?php echo $article->getTitle(); ?></h2>
+				<h2><?php echo $article->getId(); ?></h2>
 				<p><?php echo $article->getContent(); ?></p>
 				<footer>
 			        <p>
@@ -16,8 +18,13 @@
 			          par <?php echo $article->getAuthor(); ?>.
 			        </p>
 	      		</footer>
+				<a href="index.php?page=home&amp;module=delArticle&amp;id=<?php echo $article->getId();?>"><button>Supprimer</button></a>
+				<a href="index.php?page=bureau&amp;module=upArticle&amp;id=<?php echo $article->getId();?>"><button>Modifier</button></a>
 			</article>
 			<?php endforeach ?>
+		<?php else: ?>
+			<h2>Aucune nouvelles actualités</h2>
+		<?php endif ?>
 		</section>
 	</main>
 
