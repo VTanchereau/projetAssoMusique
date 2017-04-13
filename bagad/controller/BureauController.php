@@ -2,7 +2,8 @@
 
 namespace bagadlag\controller;
 
-//use bagadlag\model\dao\daoArticle;
+use bagadlag\model\dao\daoArticle;
+
 
 class BureauController
 {
@@ -18,12 +19,21 @@ class BureauController
     }
     public function addArticle()
     {
-    	header("content :view/articleAdd.html");
+    	include("view/articleAdd.html");
+
+    	if (isset($_POST['submit'])) {
+    		$articleTitle = $_POST["articleName"];
+    		$articleVisibility = intval($_POST["articleVisibility"]);
+    		$articleContent = $_POST["articleContent"];
+
+    		$a = new daoArticle();
+    		$a->articleRegister($articleTitle, $articleContent, $articleVisibility);
+    	}
 
     }
     public function addEvent()
     {
-    	include("view/subscribe.html");
+    	include("view/eventAdd.html");
     }
 
 }

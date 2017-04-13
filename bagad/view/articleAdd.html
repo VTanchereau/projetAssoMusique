@@ -1,14 +1,12 @@
-
 <form class="form_perso" method="post" action="">
 	<label for="articleName">Titre de l'article</label>
 	<input type="text" name="articleName" id="articleName" required/>
-	<label for="articleVisibility" id="label_articleVisibility">Visibilité</label>
-	<select name="articleVisibility" id="articleVisibility">
-	   <option value="vibible">Visible</option>
-	   <option value="novisible">Non visible</option>
+	<label for="articleVisibility">Visibilité</label>
+	<select name="articleVisibility">
+	   <option value="1">Visible</option>
+	   <option value="0">Non visible</option>
 	</select>
 	<label for="articleContent">Contenu</label>
-	<input type="text" name="articleContent" id="articleContent" required/>
-	<button id="btn-add"value="">Ajouter</button>
-	<button id="btn-cancel"value="">Annuler</button>
+	<input type="textarea" name="articleContent" required/>
+	<input type="submit" name="submit" value="Ajouter"/>
 </form>
