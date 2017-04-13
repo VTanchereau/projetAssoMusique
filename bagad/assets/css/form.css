@@ -5,7 +5,7 @@
 }
 
 .main_form{
-	width: 260px;
+	width: 400px;
 	padding: 30px 20px 20px 20px;
 	background: #fff;
 	border-radius: 15px;
@@ -35,17 +35,15 @@
 	color: #d3c7c3;
 }
 
-.form_perso {
-	padding: 30px 0px 0px 0px;
-}
 
 input {
 	display: block;
 	border: none;
 	background-color: #e2dbd3;
-	width: 96%;
-	height: 3em;
-	padding-left: 1em;
+	width: 100%;
+	height: 2em;
+	margin-top: 1em;
+	margin-bottom: 1em;
 	font-size: 0.9em;
 	color: #6d6d6d;
 	border: 1px solid #eeeeee;
@@ -179,4 +177,8 @@ input[type="submit"]:active {
 
 .btn_form:nth-child(1){
 	background-color: green;
+}
+.form_title{
+	color: black;
+	text-align: center;
 }
