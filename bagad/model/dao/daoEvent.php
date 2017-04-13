@@ -7,8 +7,8 @@
  */
 
 namespace bagadlag\model\dao;
-use bagadlag\model\metier\event;
 
+use bagadlag\model\metier\event;
 
 class daoEvent extends dao
 {
@@ -23,45 +23,51 @@ class daoEvent extends dao
     }
 
     public function processDbResult($dbResult){
-		  while ($data = $dbResult->fetch()) {
-				$eventName = $data["eventName"];
-				$eventType = $data["eventType"];
-				$dateStart = $data["dateStart"];
-				$dateEnd = $data["dateEnd"];
-				$eventStatut = $data["eventStatut"];
-				$eventContent = $data["eventContent"];
-				$eventPlace = $data["eventPlace"];
-				$eventPrice = $data["eventPrice"];
+		while ($data = $dbResult->fetch()) {
+			
+			//$id, $name, $startDate, $endDate, $place, $description, $valid, $fee, $type, $organizer
+			
+				$id = $data["id"];
+				$name = $data["name"];
+				$type = $data["type_id"];
+				$startDate = $data["start_date"];
+				$endDate = $data["end_date"];
+				$valid = $data["valid"];
+				$description = $data["description"];
+				$place = $data["place"];
+				$fee = $data["fee"];
 				$organizer = $data["organizer"];
-
-				$event = new event($eventName,$eventType,$dateStart,$dateEnd,$eventStatut,$eventContent,$eventPlace,$organizer);
-					$listEvent[] = $event;
-			}
-				return $listEvent;
+				$event = new event($id, $name, $startDate, $endDate, $place, $description, $valid, $fee, $type, $organizer);
+				$listEvent[] = $event;
 		}
+		return $listEvent;
+	}
 
+	
 		
 	
-	public function addEvent($eventName,$eventType,$dateStart,$dateEnd,$eventStatut,$eventContent,$eventPlace,$organizer){
+	public function addEvent($name,$type,$startDate,$endDate,$valid,$eventContent,$place,$organizer,$fee){
 	
 		$db = dbConnection::getInstance()->getDB();
-		var_dump($db);
+	
 		$stmt = $db->prepare("INSERT INTO event(name,start_date,end_date,place,description,valid,fee,type_id,organizer)VALUES(:name,:start_date,:end_date,:place,:description,:valid,:fee,:type_id,:organizer)");
-			$stmt->bindParam(":name", $eventName);
-			$stmt->bindParam(":start_date", $dateStart);
-			$stmt->bindParam(":end_date", $dateEnd);
-			$stmt->bindParam(":place", $eventPlace);
+			$stmt->bindParam(":name", $name);
+			$stmt->bindParam(":start_date", $startDate);
+			$stmt->bindParam(":end_date", $endDate);
+			$stmt->bindParam(":place", $place);
 			$stmt->bindParam(":description", $eventContent);
-			$stmt->bindParam(":valid", $eventStatut);
-			$stmt->bindParam(":fee", $eventPrice);
-			$stmt->bindParam(":type_id", $eventType);
+			$stmt->bindParam(":valid", $valid);
+			$stmt->bindParam(":fee", $fee);
+			$stmt->bindParam(":type_id", $type);
 			$stmt->bindParam(":organizer", $organizer);
-
-			$stmt->execute();
+			var_dump($stmt);
+			try{
+				$stmt->execute();
+			}
+			catch(Exception $e){
+			}
 			$stmt->closeCursor();
 
-
-		
-
     }
+
 }

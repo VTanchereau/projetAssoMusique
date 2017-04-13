@@ -47,11 +47,11 @@ class BureauController
 			$eventPlace = strtolower($_POST["eventPlace"]);
 			$eventPrice = floatval($_POST["eventPrice"]);
 			$organizer = 1;
-			
 			var_dump($_POST);
-
+			
     		$a = new daoEvent();
-    		$a->addEvent($eventName,$eventType,$dateStart,$dateEnd,$eventStatut,$eventContent,$eventPlace,$organizer);
+    		$a->addEvent($eventName,$eventType,$dateStart,$dateEnd,$eventStatut,$eventContent,$eventPlace,$organizer,$eventPrice);
+		
     	}
 
 		

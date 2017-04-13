@@ -13,10 +13,7 @@ class HomeController
 		$result = $a->selectAll();
         include("view/home.html");
 		
-		$user= new daoUser();
-		$user_result = $user->selectAll();
-		var_dump($user_result);
-		
+	
     }
 	
 

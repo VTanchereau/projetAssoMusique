@@ -1,0 +1,25 @@
+<?php include('include/header.html'); ?>
+
+	<main>
+		<section class="title">
+			<h1 id="event-title">Évènements</h1>
+		</section>
+		<section class="article_container">
+			<?php foreach ($result as $event): ?>
+			
+			<div class="event">
+				<p><?php echo $event->getName(); ?></p>
+				<p>Date début : <?php echo $event->getStartDate(); ?></p>
+				<p>Date fin : <?php echo $event->getEndDate(); ?></p>
+				<p>lieu <?php echo $event->getPlace();?></p>
+				<p>Organisateur<?php echo $event->getOrganizer();?></p>
+				<p>
+					<?php $event->getDescription();?>
+				</p>
+			</div>
+			<?php endforeach ?>
+
+		</section>
+	</main>
+
+<?php include('include/footer.html'); ?>
