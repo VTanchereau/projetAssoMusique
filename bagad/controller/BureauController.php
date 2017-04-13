@@ -40,8 +40,6 @@ class BureauController
         $a = new daoArticle();
         $result = $a->selectFromId($id);
 
-        var_dump($result);
-
         if (isset($_POST['submit'])) {
             $articleTitle = $_POST["articleName"];
             $articleVisibility = intval($_POST["articleVisibility"]);
@@ -90,8 +88,5 @@ class BureauController
 			echo $e;
 
 		}
-
-		
 	}
-
 }
