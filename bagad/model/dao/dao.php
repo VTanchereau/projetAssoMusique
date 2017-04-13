@@ -27,6 +27,7 @@ abstract class dao
     public function selectAll(){
         $sql = $this->sqlSelectStd();
         $db = dbConnection::getInstance()->getDB();
+
         $response = $db->query($sql);
         return ($this->processDbResult($response));
     }

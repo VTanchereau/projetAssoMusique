@@ -14,10 +14,9 @@ class dbConnection
     private $db;
 
     private static $user = "root";
-    private static $pass = "root";
+    private static $pass = "";
     private static $dbName = "bagad";
     private static $host = "localhost";
-    private static $port = "3307";
 
     private static $instance;
 
@@ -27,7 +26,7 @@ class dbConnection
     private function __construct()
     {
         try {
-            $this->db = new \PDO('mysql:host='.self::$host.';dbname='.self::$dbName.';port='.self::$port.';charset=utf8', self::$user, self::$pass);
+            $this->db = new \PDO('mysql:host='.self::$host.';dbname='.self::$dbName.';charset=utf8', self::$user, self::$pass);
         } catch (\PDOException $e) {
             error_log('Fail to connect to data base. error : ' .$e);
         }
