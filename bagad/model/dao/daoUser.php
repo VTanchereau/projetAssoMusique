@@ -22,14 +22,21 @@ class daoUser extends dao
     }
 
     public function processDbResult($dbResult){
-        echo '</br>';
-        echo '</br>';
+        $listUsers = array();
         while ($data = $dbResult->fetch()) {
-            echo '</br>';
-            echo $data["first_name"];
-            echo '</br>';
-            print_r($data);
+            $id = $data["id"];
+            $firstName = $data["first_name"];
+            $lastName = $data["last_name"];
+            $phoneNumber = $data["phone_number"];
+            $mail = $data["mail"];
+            $login = $data["login"];
+            $password = $data["password"];
+            $instrumentId = $data["instrument_id"];
+
+            $user = new user($id, $firstName, $lastName, $phoneNumber, $mail, $login, $password, $roleId, $groupId, $instrumentId);
+            error_log($user->getLastName());
+            $listUsers[] = $user;
         }
-        return 0;
+        return $listUsers;
     }
 }
