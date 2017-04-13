@@ -3,11 +3,9 @@
 namespace bagadlag\controller;
 use bagadlag\model\dao\dbConnection;
 
-<<<<<<< HEAD
-=======
 use bagadlag\model\dao\daoArticle;
 
->>>>>>> master
+
 
 class BureauController
 {
