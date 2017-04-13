@@ -32,6 +32,13 @@ abstract class dao
         return ($this->processDbResult($response));
     }
 
+    public function executeQuery($query){
+        $db = dbConnection::getInstance()->getDB();
+
+        $response = $db->query($query);
+        return $response;
+    }
+
     public function selectFromId($id){
 
     }

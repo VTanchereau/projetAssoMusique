@@ -18,7 +18,7 @@ class user
     private $password;
     private $mail;
     private $phoneNumber;
-    private $group;
+    private $groupe;
     private $role;
     private $instrument;
 
@@ -35,7 +35,7 @@ class user
      * @param $role
      * @param $instrument
      */
-    public function __construct($id, $firstName, $lastName, $login, $password, $mail, $phoneNumber, $group, $role, $instrument)
+    public function __construct($id, $firstName, $lastName, $login, $password, $mail, $phoneNumber, $instrument)
     {
         $this->id = $id;
         $this->firstName = $firstName;
@@ -44,9 +44,17 @@ class user
         $this->password = $password;
         $this->mail = $mail;
         $this->phoneNumber = $phoneNumber;
-        $this->group = $group;
-        $this->role = $role;
+        $this->groupe = array();
+        $this->role = array();
         $this->instrument = $instrument;
+    }
+
+    public function addRole($role){
+        $this->role[] = $role;
+    }
+
+    public function addGroupe($groupe){
+        $this->groupe[] = $groupe;
     }
 
     /**
@@ -108,9 +116,9 @@ class user
     /**
      * @return mixed
      */
-    public function getGroup()
+    public function getGroupe()
     {
-        return $this->group;
+        return $this->groupe;
     }
 
     /**

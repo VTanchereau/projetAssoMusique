@@ -16,31 +16,33 @@ class daoUser extends dao
     public function __construct()
     {
         $this->tableName = "user";
-        $this->fields = "user.*, instrument.name as instrumentName";
-        $this->join = "INNER JOIN instrument ON instrument.id = user.instrument_id";
+    }
+
+    public function getUserByLogin($login)
+    {
+        $query = "SELECT user.id as userId";
+        $query .= ", user.first_name as userFirstName";
+        $query .= ", user.last_name as userLastName";
+        $query .= ", user.birth_date as userBirthDate";
+        $query .= ", user.phone_number as userPhoneNumber";
+        $query .= ", user.mail as userMail";
+        $query .= ", user.login as userLogin";
+        $query .= ", user.password as userPassword";
+        $query .= ", instrument.name as instrumentName";
+
+        $query .= " FROM ".$this->tableName;
+        $query .= " INNER JOIN instrument ON instrument.id = user.instrument_id";
+        $query .= " WHERE user.login = '" . $login . "';";
+
+        $response = $this->executeQuery($query);
+    }
+
+    public function selectAll(){
+        return "ERROR";
     }
 
     public function processDbResult($dbResult){
-
-        while ($data = $dbResult->fetch()) {
-			var_dump($data);
-            $id = $data["id"];
-			$firstName = $data["first_name"];
-			$lastName = $data["last_name"];
-			$login = $data["login"];
-			$password = $data["password"];
-			$mail = $data["mail"];
-			$phoneNumber = $data["phone_number"];
-			$group = $data["groupe_id"];
-			$role = $data["role_id"];
-			$instrument = $data["instrumentName"];
-
-            $user = new user($id, $firstName, $lastName, $login, $password, $mail, $phoneNumber, $group, $role, $instrument);
-            //error_log($article->getLastName());
-
-            $listUsers[] = $user;
-        }
-        return $listUsers;
+        return "ERROR";
     }
 }
 ?>
