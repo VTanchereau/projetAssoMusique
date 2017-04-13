@@ -37,6 +37,7 @@ class daoUser extends dao
 
             $user = new user($id, $firstName, $lastName, $login, $password, $mail, $phoneNumber, $group, $role, $instrument);
             //error_log($article->getLastName());
+
             $listUsers[] = $user;
         }
         return $listUsers;
