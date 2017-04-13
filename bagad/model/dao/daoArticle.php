@@ -32,19 +32,46 @@ class daoArticle extends dao
             $visibility = $data["visibility"];
             $author = $data["first_name"];
 
-            $article = new article($id, $author, $title, $content, $creationDate, $visibility);
-            //error_log($article->getLastName());
-            $listArticle[] = $article;
+            if ($visibility == 1) {     
+                if ($data != null) {
+                    $article = new article($id, $author, $title, $content, $creationDate, $visibility);
+                    //error_log($article->getLastName());
+                    $listArticle[] = $article;
+                }
+            }
         }
-        return $listArticle;
+        if (!empty($listArticle)) {
+            return $listArticle;
+        }
+        else{
+            return;
+        }
     }
 
-    public function articleRegister($articleTitle, $articleContent, $articleVisibility){
+    public function articleRegister($articleTitle, $articleContent, $articleVisibility, $articleAuthor){
         $db = dbConnection::getInstance()->getDB();
-        $stmt = $db->prepare("INSERT INTO article(title, content, creation_date, visibility) VALUES (:title, :content, CURDATE(), :visibility)");
+        $stmt = $db->prepare("INSERT INTO article(title,content,creation_date,visibility,author) VALUES (:title,:content,CURDATE(),:visibility,:author)");
         $stmt->bindParam(":title", $articleTitle);
         $stmt->bindParam(":content", $articleContent);
         $stmt->bindParam(":visibility", $articleVisibility);
+        $stmt->bindParam(":author", $articleAuthor);
+        $stmt->execute();
+        $stmt->closeCursor();
+    }
+
+    public function articleDelete($id){
+        $db = dbConnection::getInstance()->getDB();
+        $stmt = $db->prepare("DELETE FROM article WHERE id = '$id'");
+        $stmt->execute();
+    }
+
+    public function articleUpdate($articleTitle, $articleContent, $articleVisibility, $articleAuthor){
+        $db = dbConnection::getInstance()->getDB();
+        $stmt = $db->prepare("UPDATE article(title,content,creation_date,visibility,author) VALUES (:title,:content,CURDATE(),:visibility,:author)");
+        $stmt->bindParam(":title", $articleTitle);
+        $stmt->bindParam(":content", $articleContent);
+        $stmt->bindParam(":visibility", $articleVisibility);
+        $stmt->bindParam(":author", $articleAuthor);
         $stmt->execute();
         $stmt->closeCursor();
     }

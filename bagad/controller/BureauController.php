@@ -19,17 +19,37 @@ class BureauController
     }
     public function addArticle()
     {
+
+        if (isset($_POST['submit'])) {
+            $articleTitle = $_POST["articleName"];
+            $articleVisibility = intval($_POST["articleVisibility"]);
+            $articleContent = $_POST["articleContent"];
+            $articleAuthor = 1;
+
+            $a = new daoArticle();
+            $a->articleRegister($articleTitle, $articleContent, $articleVisibility, $articleAuthor);
+        }
+
     	include("view/articleAdd.html");
+    }
+    public function upArticle()
+    {
+        $id = intval($_GET['id']);
+        $a = new daoArticle();
+        $result = $a->selectFromId($id);
 
-    	if (isset($_POST['submit'])) {
-    		$articleTitle = $_POST["articleName"];
-    		$articleVisibility = intval($_POST["articleVisibility"]);
-    		$articleContent = $_POST["articleContent"];
+        var_dump($result);
 
-    		$a = new daoArticle();
-    		$a->articleRegister($articleTitle, $articleContent, $articleVisibility);
-    	}
+        if (isset($_POST['submit'])) {
+            $articleTitle = $_POST["articleName"];
+            $articleVisibility = intval($_POST["articleVisibility"]);
+            $articleContent = $_POST["articleContent"];
+            $articleAuthor = 1;
 
+            $a->articleUpdate($id, $articleTitle, $articleContent, $articleVisibility, $articleAuthor);
+        }
+
+        include("view/articleAdd.html");
     }
     public function addEvent()
     {

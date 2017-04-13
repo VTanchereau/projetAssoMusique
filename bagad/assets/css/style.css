@@ -53,14 +53,16 @@ main{
 }
 
 /* TYPO */ 
-
+.text-center{
+	text-align: center;
+}
 
 /* GENERAL */ 
 .form_perso{
+	margin: auto;
+	width: 40vw;
 	box-shadow: 3px 3px #111;
 	background-color: #222;
-	border: 3px double #222;
-	padding: 2em;
 }
 .form_perso label{
 	font-size: 1.2em;
@@ -80,10 +82,10 @@ main{
 	border-radius: 3px;
     box-shadow: 1px 2px 3px black;
 }
-.article:nth-child(1){
+.article:nth-child(odd){
 	margin-right: 40vw;
 }
-.article:nth-child(2){
+.article:nth-child(even){
 	margin-left: 40vw;
 }
 .article p{
