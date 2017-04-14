@@ -1,13 +1,20 @@
 <?php 
-require_once "../model/dao/dao.php";
-require_once "../model/dao/daoEvent.php";
-require_once "../model/dao/dbConnection.php";
+namespace bagadlag\controller;
 
 use bagadlag\model\dao\daoEvent;
 
-$a = new daoEvent();
-$result = $a->selectAll();
+class EventController{
+	
+	public function show(){
+		
+		$a = new daoEvent();
+		$result = $a->selectAll();
+			
+		include("view/event.html");
+	}
 
-print_r($result);
-include("../view/home.html");
+}
+
+
+
 ?>

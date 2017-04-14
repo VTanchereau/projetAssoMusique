@@ -65,13 +65,12 @@ class daoArticle extends dao
         $stmt->execute();
     }
 
-    public function articleUpdate($articleTitle, $articleContent, $articleVisibility, $articleAuthor){
+    public function articleUpdate($articleTitle, $articleContent, $articleVisibility, $articleAuthor, $id){
         $db = dbConnection::getInstance()->getDB();
-        $stmt = $db->prepare("UPDATE article(title,content,creation_date,visibility,author) VALUES (:title,:content,CURDATE(),:visibility,:author)");
+        $stmt = $db->prepare("UPDATE article SET title='$articleTitle',content='$articleContent',visibility='$articleVisibility' WHERE id = '$id'");
         $stmt->bindParam(":title", $articleTitle);
         $stmt->bindParam(":content", $articleContent);
         $stmt->bindParam(":visibility", $articleVisibility);
-        $stmt->bindParam(":author", $articleAuthor);
         $stmt->execute();
         $stmt->closeCursor();
     }

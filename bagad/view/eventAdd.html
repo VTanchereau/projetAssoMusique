@@ -1,5 +1,5 @@
 
-		<form class="form_perso" method="post" action="index.php?page=bureau&module=addEventBdd">
+		<form class="form_perso" method="post" action="">
 				<div class="element">
 					<div id="eventTitle">
 					<label for="eventName">Titre de l'évènement</label>
@@ -16,11 +16,11 @@
 				<div class="element">
 					<div id="date1">
 						<label for="dateStart">Date début</label>
-						<input type="date" name="dateStart" id="dateStart" />
+						<input type="datetime-local" name="dateStart" id="dateStart" />
 					</div>
 					<div id="date2" class="end">
 					<label for="dateEnd">Date fin</label>
-					<input type="date" name="dateEnd" id="dateEnd" />
+					<input type="datetime-local" name="dateEnd" id="dateEnd" />
 					</div>
 			
 				</div>
@@ -47,7 +47,7 @@
 			<input type="text" name="eventContent" id="eventContent" class="contenu" required/>
 			<p>Créer par :</p>
 			<div class="btn_form">
-				<input type="submit" id="btn-add" value="Ajouter"/>
+				<input type="submit" name="submit" id="btn-add" value="Ajouter"/>
 				
 			</div>
 		</form>
