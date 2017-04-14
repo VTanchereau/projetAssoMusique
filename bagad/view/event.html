@@ -1,25 +1,40 @@
 <?php include('include/header.html'); ?>
 
-	<main>
-		<section class="title">
-			<h1 id="event-title">Évènements</h1>
-		</section>
-		<section class="article_container">
-			<?php foreach ($result as $event): ?>
-			
-			<div class="event">
-				<p><?php echo $event->getName(); ?></p>
-				<p>Date début : <?php echo $event->getStartDate(); ?></p>
-				<p>Date fin : <?php echo $event->getEndDate(); ?></p>
-				<p>lieu <?php echo $event->getPlace();?></p>
-				<p>Organisateur<?php echo $event->getOrganizer();?></p>
-				<p>
-					<?php $event->getDescription();?>
-				</p>
-			</div>
-			<?php endforeach ?>
+<main>
+	<section class="title">
+		<h1 id="event-title">Évènements</h1>
+	</section>
+	<section id="contain" class="article_container">
+		<?php if(isset($result)): ?>
 
-		</section>
-	</main>
+		<?php foreach ($result as $event): ?>
+
+		<div class="article">
+			<p>
+				<?php echo $event->getName(); ?>
+			</p>
+			<p>Date début :
+				<?php echo $event->getStartDate(); ?>
+			</p>
+			<p>Date fin :
+				<?php echo $event->getEndDate(); ?>
+			</p>
+			<p>lieu
+				<?php echo $event->getPlace();?>
+			</p>
+			<p>Organisateur
+				<?php echo $event->getOrganizer();?>
+			</p>
+			<p>
+				<?php $event->getDescription();?>
+			</p>
+			<a href="index.php?page=event&amp;module=delEvent&amp;id=<?php echo $event->getId();?>"><button>Supprimer</button></a>
+		</div>
+		<?php endforeach ?>
+		<?php else: ?>
+		<h2>Aucun nouvel évènement</h2>
+		<?php endif ?>
+	</section>
+</main>
 
 <?php include('include/footer.html'); ?>

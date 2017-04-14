@@ -69,5 +69,11 @@ class daoEvent extends dao
 			$stmt->closeCursor();
 
     }
+	
+	    public function eventDelete($id){
+        $db = dbConnection::getInstance()->getDB();
+        $stmt = $db->prepare("DELETE FROM event WHERE id = '$id'");
+        $stmt->execute();
+    }
 
 }
