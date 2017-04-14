@@ -6,35 +6,21 @@
 	</section>
 	<section id="contain" class="article_container">
 		<?php if(isset($result)): ?>
-
-		<?php foreach ($result as $event): ?>
-
-		<div class="article">
-			<p>
-				<?php echo $event->getName(); ?>
-			</p>
-			<p>Date début :
-				<?php echo $event->getStartDate(); ?>
-			</p>
-			<p>Date fin :
-				<?php echo $event->getEndDate(); ?>
-			</p>
-			<p>lieu
-				<?php echo $event->getPlace();?>
-			</p>
-			<p>Organisateur
-				<?php echo $event->getOrganizer();?>
-			</p>
-			<p>
-				<?php $event->getDescription();?>
-			</p>
-			<a href="index.php?page=bureau&amp;module=delEvent&amp;id=<?php echo $event->getId();?>"><button >Supprimer</button></a>
-			<a href="index.php?page=bureau&amp;module=upEvent&amp;id=<?php echo $event->getId();?>"><button>Modifier</button></a>
-
-		</div>
-		<?php endforeach ?>
+			<?php foreach ($result as $event): ?>
+			<div class="article">
+				<p><?php echo $event->getName(); ?></p>
+				<p>Date début :<?php echo $event->getStartDate(); ?></p>
+				<p>Date fin :<?php echo $event->getEndDate(); ?></p>
+				<p>lieu :<?php echo $event->getPlace();?></p>
+				<p>Organisateur<?php echo $event->getOrganizer();?></p>
+				<p><?php $event->getDescription();?></p>
+				
+				<a href="index.php?page=bureau&amp;module=delEvent&amp;id=<?php echo $event->getId();?>"><button >Supprimer</button></a>
+				<a href="index.php?page=bureau&amp;module=upEvent&amp;id=<?php echo $event->getId();?>"><button>Modifier</button></a>
+			</div>
+			<?php endforeach ?>
 		<?php else: ?>
-		<h2>Aucun nouvel évènement</h2>
+			<h2>Aucun nouvel évènement</h2>
 		<?php endif ?>
 	</section>
 </main>

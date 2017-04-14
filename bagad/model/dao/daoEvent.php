@@ -21,14 +21,10 @@ class daoEvent extends dao
         $this->tableName = "event";
         $this->fields = "event.*,type.label";
 		$this->join = "INNER JOIN type ON type.id = event.type_id";
-
     }
 
     public function processDbResult($dbResult){
 		while ($data = $dbResult->fetch()) {
-			
-			//$id, $name, $startDate, $endDate, $place, $description, $valid, $fee, $type, $organizer
-		
 				$id = $data["id"];
 				$name = $data["name"];
 				$type = $data["label"];
@@ -45,9 +41,8 @@ class daoEvent extends dao
 	}
 	
 	public function eventAdd($name,$type,$startDate,$endDate,$eventContent,$place,$organizer,$fee){
-	
 		$db = dbConnection::getInstance()->getDB();
-		$stmt = $db->prepare("INSERT INTO event(name,start_date,end_date,place,description,valid,fee,type_id,organizer)VALUES(:name,:start_date,:end_date,:place,:description,:valid,:fee,:type_id,:organizer)");
+		$stmt = $db->prepare("INSERT INTO event(name,start_date,end_date,place,description,fee,type_id,organizer)VALUES(:name,:start_date,:end_date,:place,:description,:fee,:type_id,:organizer)");
 			$stmt->bindParam(":name", $name);
 			$stmt->bindParam(":start_date", $startDate);
 			$stmt->bindParam(":end_date", $endDate);
@@ -62,10 +57,8 @@ class daoEvent extends dao
 			catch(Exception $e){
 			}
 			$stmt->closeCursor();
-
     }
 	
-
 	public function eventDelete($id){
         $db = dbConnection::getInstance()->getDB();
         $stmt = $db->prepare("DELETE FROM event WHERE id = '$id'");

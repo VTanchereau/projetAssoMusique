@@ -93,8 +93,8 @@ class BureauController
 			$eventPrice = floatval($_POST["eventPrice"]);
 			$organizer = 1;
 			$a->eventUpdate($eventName,$eventType,$dateStart,$dateEnd,$eventContent,$eventPlace,$organizer,$eventPrice,$id);
-			//exit();
-
+			header("Location:index.php?page=event");
+            die();
 		}
 	}
 	public function delEvent()
