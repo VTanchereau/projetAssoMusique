@@ -69,7 +69,7 @@ class BureauController
 			$organizer = 1;
 
     		$a = new daoEvent();
-    		$a->addEvent($eventName,$eventType,$dateStart,$dateEnd,$eventStatut,$eventContent,$eventPlace,$organizer,$eventPrice);
+    		$a->eventAdd($eventName,$eventType,$dateStart,$dateEnd,$eventStatut,$eventContent,$eventPlace,$organizer,$eventPrice);
 		
     	}
     }	

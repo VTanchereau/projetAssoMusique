@@ -46,7 +46,7 @@ class daoEvent extends dao
 	
 		
 	
-	public function addEvent($name,$type,$startDate,$endDate,$valid,$eventContent,$place,$organizer,$fee){
+	public function eventAdd($name,$type,$startDate,$endDate,$valid,$eventContent,$place,$organizer,$fee){
 	
 		$db = dbConnection::getInstance()->getDB();
 	
