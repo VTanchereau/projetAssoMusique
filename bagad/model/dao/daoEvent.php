@@ -74,7 +74,8 @@ class daoEvent extends dao
         $db = dbConnection::getInstance()->getDB();
         $stmt = $db->prepare("DELETE FROM event WHERE id = '$id'");
         $stmt->execute();
-		header("refresh: 1;");
+		header('Location:index.php?page=event');
+
     }
 
 }
