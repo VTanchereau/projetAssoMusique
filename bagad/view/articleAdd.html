@@ -1,6 +1,20 @@
+<?php if (isset($result)): ?>
 <form class="form_perso" method="post" action="">
 	<label for="articleName">Titre de l'article</label>
-	<input type="text" name="articleName" id="articleName" required/>
+	<input type="text" name="articleName" id="articleName" value="<?php echo $result[0]->getTitle(); ?>" required/>
+	<label for="articleVisibility">Visibilité</label>
+	<select name="articleVisibility">
+	   <option value="1">Visible</option>
+	   <option value="0">Non visible</option>
+	</select>
+	<label for="articleContent">Contenu</label>
+	<input type="textarea" name="articleContent" value="<?php echo $result[0]->getContent(); ?>" required/>
+	<input type="submit" name="submit" value="Modifier"/>
+</form>
+<?php else: ?>
+<form class="form_perso" method="post" action="">
+	<label for="articleName">Titre de l'article</label>
+	<input type="text" name="articleName" id="articleName"/>
 	<label for="articleVisibility">Visibilité</label>
 	<select name="articleVisibility">
 	   <option value="1">Visible</option>
@@ -10,3 +24,4 @@
 	<input type="textarea" name="articleContent" required/>
 	<input type="submit" name="submit" value="Ajouter"/>
 </form>
+<?php endif ?>
