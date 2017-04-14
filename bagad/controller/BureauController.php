@@ -4,6 +4,7 @@ namespace bagadlag\controller;
 
 use bagadlag\model\dao\daoArticle;
 use bagadlag\model\dao\daoEvent;
+use bagadlag\model\dao\daoType;
 
 class BureauController
 {
@@ -47,6 +48,7 @@ class BureauController
         }
         include("view/articleAdd.html");
     }
+	
     public function delArticle()
     {
         $id = intval($_GET['id']);
@@ -57,22 +59,48 @@ class BureauController
     }
     public function addEvent()
     {
+		$a = new daoType();
+		$listType = $a->selectAll();
     	include("view/eventAdd.html");
 		if (isset($_POST['submit'])) {
     		$eventName = strtolower($_POST["eventName"]);
 			$eventType = intval($_POST["eventType"]);
 			$dateStart = $_POST["dateStart"];
 			$dateEnd = $_POST["dateEnd"];
-			$eventStatut = intval($_POST["eventStatut"]);
 			$eventContent = $_POST["eventContent"];
 			$eventPlace = strtolower($_POST["eventPlace"]);
 			$eventPrice = floatval($_POST["eventPrice"]);
 			$organizer = 1;
-
+			
     		$a = new daoEvent();
-    		$a->eventAdd($eventName,$eventType,$dateStart,$dateEnd,$eventStatut,$eventContent,$eventPlace,$organizer,$eventPrice);
-		
-
+    		$a->eventAdd($eventName,$eventType,$dateStart,$dateEnd,$eventContent,$eventPlace,$organizer,$eventPrice);	
     	}
     }	
+	public function upEvent(){
+		$id = intval($_GET['id']);
+		$a = new daoType();
+		$listType = $a->selectAll();
+		$a = new daoEvent();
+		$result = $a->selectFromId($id);
+		include("view/eventAdd.html");
+		if (isset($_POST['submit'])) {
+			$eventName = strtolower($_POST["eventName"]);
+			$eventType = intval($_POST["eventType"]);
+			$dateStart = $_POST["dateStart"];
+			$dateEnd = $_POST["dateEnd"];
+			$eventContent = $_POST["eventContent"];
+			$eventPlace = strtolower($_POST["eventPlace"]);
+			$eventPrice = floatval($_POST["eventPrice"]);
+			$organizer = 1;
+			$a->eventUpdate($eventName,$eventType,$dateStart,$dateEnd,$eventContent,$eventPlace,$organizer,$eventPrice,$id);
+			//exit();
+
+		}
+	}
+	public function delEvent()
+	{
+		 $id = intval($_GET['id']);
+		 $a = new daoEvent();
+		 $a->eventDelete($id);
+	}
 }

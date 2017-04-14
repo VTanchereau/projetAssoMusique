@@ -8,6 +8,7 @@
 
 namespace bagadlag\model\dao;
 
+use bagadlag\model\metier\type;
 
 class daoType extends dao
 {
@@ -18,18 +19,17 @@ class daoType extends dao
     public function __construct()
     {
         $this->tableName = "type";
-        $this->fields = array("id", "label","with_fee");
+        $this->fields = "type.*";
     }
 
     public function processDbResult($dbResult){
-        echo '</br>';
-        echo '</br>';
         while ($data = $dbResult->fetch()) {
-            echo '</br>';
-            echo $data["with_fee"];
-            echo '</br>';
-            print_r($data);
+			$id = $data["id"];
+			$label = $data["label"];
+			$withFee = $data["with_fee"];
+			$type = new type($id,$label,$withFee);
+			$listType[] = $type;
         }
-        return 0;
+        return $listType;
     }
 }

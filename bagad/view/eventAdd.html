@@ -1,15 +1,63 @@
-
+<?php if (isset($result)): ?>
 		<form class="form_perso" method="post" action="">
 				<div class="element">
 					<div id="eventTitle">
 					<label for="eventName">Titre de l'évènement</label>
-					<input type="text" name="eventName" id="" required/>
+					<input type="text" name="eventName" id="" value="<?php echo $result[0]->getName();?>" required />
 					</div>
 					<div id="chooseType">
 					<label for="eventType" id="eventType">Type</label>
 					<select name="eventType" id="type">
-								   <option value="1">Type1</option>
-								   <option value="2">Type2</option>
+						<?php foreach ($listType as $type): ?>
+						<option value="<?php echo $type->getId();?>"><?php echo $type->getLabel();?></option>
+						<?php endforeach ?>
+					</select>
+					</div>
+				</div>
+				<div class="element">
+					<div id="date1">
+						<label for="dateStart">Date début</label>
+						<input type="text" name="dateStart" id="dateStart" value="<?php echo $result[0]->getStartDate();?>"/>
+					</div>
+					<div id="date2" class="end">
+					<label for="dateEnd">Date fin</label>
+					<input type="text" name="dateEnd" id="dateEnd" value="<?php echo $result[0]->getEndDate();?>"/>
+					</div>
+			
+				</div>
+			
+				<div class="element">
+					<div class="end">
+						<label for="eventPlace">Lieu de l'évènement </label>
+						<input name="eventPlace" id="eventPlace" value="<?php echo $result[0]->getPlace();?>"/>
+					</div>
+				</div>
+				<div class="element" id="price">
+					<label for="eventPrice">Prix</label>
+					<input name="eventPrice" id="eventPrice" value="<?php echo $result[0]->getFee();?>"/>
+				</div>
+				
+			<label for="eventContent">Contenu</label>
+			<input type="text" name="eventContent" id="eventContent" class="contenu" value="<?php echo $result[0]->getDescription();?>"required/>
+			<p>Créer par :</p>
+			<div class="btn_form">
+				<input type="submit" name="submit" id="btn-add" value="Ajouter"/>
+				
+			</div>
+		</form>
+<?php else: ?>
+<form class="form_perso" method="post" action="">
+				<div class="element">
+					<div id="eventTitle">
+					<label for="eventName">Titre de l'évènement</label>
+					<input type="text" name="eventName" id="" required />
+					</div>
+					<div id="chooseType">
+					<label for="eventType" id="eventType">Type</label>
+					<select name="eventType" id="type">
+						<?php foreach ($listType as $type): ?>
+						<option value="<?php echo $type->getId();?>"><?php echo $type->getLabel();?></option>
+						<?php endforeach ?>
 					</select>
 					</div>
 				</div>
@@ -26,13 +74,6 @@
 				</div>
 				
 				<div class="element">
-					<div class="first">
-					<label for="eventStatut" id="">Statut</label>
-					<select name="eventStatut" id="">
-									   <option value="0">Non validé</option>
-									   <option value="1">Valide</option>
-									</select>
-									</div>
 					<div class="end">
 					<label for="eventPlace">Lieu de l'évènement </label>
 					<input name="eventPlace" id="eventPlace" />
@@ -51,3 +92,4 @@
 				
 			</div>
 		</form>
+<?php endif ?>

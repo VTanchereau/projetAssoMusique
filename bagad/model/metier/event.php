@@ -17,7 +17,6 @@ class event
     private $endDate;
     private $place;
     private $description;
-    private $valid;
     private $fee;
     private $type;
     private $organizer;
@@ -36,7 +35,7 @@ class event
      * @param $type
      * @param $organizer
      */
-    public function __construct($id, $name, $startDate, $endDate, $place, $description, $valid, $fee, $type, $organizer)
+    public function __construct($id, $name, $startDate, $endDate, $place, $description, $fee, $type, $organizer)
     {
         $this->id = $id;
         $this->name = $name;
@@ -44,7 +43,6 @@ class event
         $this->endDate = $endDate;
         $this->place = $place;
         $this->description = $description;
-        $this->valid = $valid;
         $this->fee = $fee;
         $this->type = $type;
         $this->organizer = $organizer;
@@ -99,13 +97,6 @@ class event
         return $this->description;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getValid()
-    {
-        return $this->valid;
-    }
 
     /**
      * @return mixed

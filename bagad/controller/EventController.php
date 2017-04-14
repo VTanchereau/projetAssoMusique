@@ -7,21 +7,10 @@ class EventController{
 	
 	public function show()
 	{
-		
 		$a = new daoEvent();
 		$result = $a->selectAll();
-			
+		var_dump($result);	
 		include("view/event.html");
 	}
-	
-	 public function delEvent()
-	 {
-		 $id = intval($_GET['id']);
-		 $a = new daoEvent();
-		 $a->eventDelete($id);
-	 }
 }
-
-
-
 ?>

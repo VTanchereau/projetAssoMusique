@@ -33,7 +33,7 @@ abstract class dao
     }
 
     public function selectFromId($id){
-        $sql = $this->sqlSelectStd("WHERE article.id =".$id);
+        $sql = $this->sqlSelectStd("WHERE $this->tableName.id =".$id);
         $db = dbConnection::getInstance()->getDB();
 
         $response = $db->query($sql);
