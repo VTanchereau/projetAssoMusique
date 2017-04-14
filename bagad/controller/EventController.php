@@ -14,13 +14,12 @@ class EventController{
 		include("view/event.html");
 	}
 	
-	   public function delEvent()
-    {
-        $id = intval($_GET['id']);
-        $a = new daoEvent();
-        $a->eventDelete($id);
-    }
-
+	 public function delEvent()
+	 {
+		 $id = intval($_GET['id']);
+		 $a = new daoEvent();
+		 $a->eventDelete($id);
+	 }
 }
 
 
