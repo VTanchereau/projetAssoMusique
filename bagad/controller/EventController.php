@@ -9,7 +9,6 @@ class EventController{
 	{
 		$a = new daoEvent();
 		$result = $a->selectAll();
-		var_dump($result);	
 		include("view/event.html");
 	}
 }

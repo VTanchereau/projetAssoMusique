@@ -28,7 +28,7 @@ class daoEvent extends dao
 		while ($data = $dbResult->fetch()) {
 			
 			//$id, $name, $startDate, $endDate, $place, $description, $valid, $fee, $type, $organizer
-			//var_dump($data);
+		
 				$id = $data["id"];
 				$name = $data["name"];
 				$type = $data["label"];
@@ -76,7 +76,6 @@ class daoEvent extends dao
 	
 	public function eventUpdate($eventName,$eventType,$eventStartDate,$eventEndDate,$eventContent,$eventPlace,$eventOrganizer,$eventFee,$id)
 	{
-		var_dump($id);
 		
 		$db = dbConnection::getInstance()->getDB();
         $stmt = $db->prepare("UPDATE event SET name='$eventName',start_date='$eventStartDate',end_date='$eventEndDate',place='$eventPlace',description='$eventContent',fee='$eventFee',type_id='$eventType',organizer='$eventOrganizer'  WHERE id = '$id'");
@@ -90,7 +89,6 @@ class daoEvent extends dao
 			$stmt->bindParam(":organizer", $eventOrganizer);
 
         $stmt->execute();
-		var_dump($stmt);
         $stmt->closeCursor();
 		
 	}
