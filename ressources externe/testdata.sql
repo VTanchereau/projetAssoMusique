@@ -29,10 +29,10 @@ INSERT INTO article (id, title, content, creation_date, visibility, author) VALU
 (0, 'Concours', 'resultats concours lorient 2017', '2017-07-21 00:00:00', 1, 0),
 (1, 'Fete du slip', 'soirée cuir et moustache', '2017-06-15 00:00:00', 1, 0);
 
-INSERT INTO event (id, name, start_date, end_date, place, description, valid, fee, type_id, organizer) VALUES
-(0, 'HellFest', '2017-06-16 00:00:00', '2017-06-17 00:00:00', 'Clisson, France', 'Le Hellfest, également appelé Hellfest Summer Open Air, est un festival de musique français spécialisé dans les musiques extrêmes', 0, 1000, 0, 0),
-(1, 'Concours Lorient 2017', '2017-08-05 00:00:00', '2017-08-06 00:00:00', 'Lorient, France', 'Concours national des Bagadou', 0, NULL, 2, 0),
-(2, 'Reunion commission musicale', '2017-10-01 00:00:00', '2017-10-01 00:00:00', 'Ploemeur, France', 'Réflexion sur le programme de l\'année suivante', 0, NULL, 4, 0);
+INSERT INTO event (id, name, start_date, end_date, place, description, fee, type_id, organizer) VALUES
+(0, 'HellFest', '2017-06-16 00:00:00', '2017-06-17 00:00:00', 'Clisson, France', 'Le Hellfest, également appelé Hellfest Summer Open Air, est un festival de musique français spécialisé dans les musiques extrêmes', 1000, 0, 0),
+(1, 'Concours Lorient 2017', '2017-08-05 00:00:00', '2017-08-06 00:00:00', 'Lorient, France', 'Concours national des Bagadou', NULL, 2, 0),
+(2, 'Reunion commission musicale', '2017-10-01 00:00:00', '2017-10-01 00:00:00', 'Ploemeur, France', 'Réflexion sur le programme de l\'année suivante', NULL, 4, 0);
 
 INSERT INTO groupe_user (groupe_id, user_id) VALUES
 (0, 0),

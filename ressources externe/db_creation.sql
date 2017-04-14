@@ -76,7 +76,6 @@ CREATE TABLE IF NOT EXISTS `BagaD`.`event` (
   `end_date` DATETIME NOT NULL,
   `place` VARCHAR(255) NOT NULL,
   `description` VARCHAR(255) NULL,
-  `valid` TINYINT NOT NULL,
   `fee` DECIMAL NULL,
   `type_id` INT NOT NULL,
   `organizer` INT NOT NULL,
